@@ -1,0 +1,78 @@
+---
+title: "Docker Guide"
+author: "Md Zahid Hasan"
+date: "2023-04-27"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.  **Install Git.**\
+    change to the directory where you will clone the repository using\
+    -git clone <https://gitlab.fit.cvut.cz/rybolzde/household-web.git> <specify directory name>
+
+```{bash eval = FALSE}
+git clone https://gitlab.fit.cvut.cz/rybolzde/household-web.git household-application
+```
+
+2.  **Install Docker.**\
+3.  **Login with credentials.**
+
+```{bash eval = FALSE}
+Docker login
+```
+
+4.  **For starting the application with new jar file and with new database**(it will use volumes existing in (/var/lib/postgresql/data)):\
+
+```{bash eval = FALSE}
+docker-compose up
+```
+
+\
+(which will download postgres:13, set database details, build the app using maven 3.8.3:opnejdk-17, store app, database data in volume and finally run the app)which can be accessed at <https://localhost:8080/>
+
+5.  **For existing database, starting application with new jar file.**\
+
+to start a database from existing database located in a directory (location of the data directory)(skip this step if you have database container and its running)\
+-docker run --name (required-container-name) -e POSTGRES_USER=(required database username) -e POSTGRES_PASSWORD=(required database password) -d -p 5432:5432 -v (location of the data directory):(location where data will be stored in docker) postgres:13\
+
+```{bash eval = FALSE}
+docker run --name household-postgres 
+-e POSTGRES_USER=postgres 
+-e POSTGRES_PASSWORD=postgres -d -p 5432:5432 
+-v <location of the data directory>:/var/lib/postgresql/data postgres:13
+```
+
+\
+to link with existing and running database container in docker\
+-sudo docker build (household-container name):(tag) .\
+-sudo docker run --name (required-app-container-name) -p 8080:8080 --link (name of database container) -e SPRING_DATASOURCE_URL=jdbc:postgresql://(hostname):5432/(existing database name) -e SPRING_DATASOURCE_USERNAME=(existing database username) -e SPRING_DATASOURCE_PASSWORD=(existing database password) (required application container name):(container tag)\
+
+```{bash eval = FALSE}
+docker build household-application:latest .
+```
+
+```{bash eval = FALSE}
+docker run --name household-application -p 8080:8080 
+--link household-postgres 
+-e SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/postgres 
+-e SPRING_DATASOURCE_USERNAME=postgres 
+-e SPRING_DATASOURCE_PASSWORD=postgres household-application:latest
+```
+
+6.  **For using existing database and existing application container**
+
+    \
+    -sudo docker run --name (required-app-container-name) -p 8080:8080 --link (name of database container) -e SPRING_DATASOURCE_URL=jdbc:postgresql://(hostname):5432/(existing database name) -e SPRING_DATASOURCE_USERNAME=(existing database username) -e SPRING_DATASOURCE_PASSWORD=(existing database password) (required application container name):(container tag)\
+
+```{bash eval = FALSE}
+docker run --name household-application -p 8080:8080 --link <name of database container> 
+-e SPRING_DATASOURCE_URL=jdbc:postgresql://<hostname>:5432/<existing database name> 
+-e SPRING_DATASOURCE_USERNAME=<existing database username> 
+-e SPRING_DATASOURCE_PASSWORD=<existing database password> 
+<application container name>:<tag>
+```

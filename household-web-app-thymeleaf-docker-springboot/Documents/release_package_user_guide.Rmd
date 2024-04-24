@@ -1,0 +1,57 @@
+---
+title: "Release Package User Guide"
+author: "Md Zahid Hasan"
+date: "2023-05-26"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **-Install Git.**
+
+## -In case, user does not have docker, they can run using
+
+```{bash eval = FALSE}
+java -jar Household-0.0.1-SNAPSHOT.jar
+```
+
+For this, they should have openjdk:17 or higher and Java compiler configured
+
+## **-Install Docker and login to docker**
+
+## **-Download the release package.zip and extract it. Then, go to the release package directory and run** ...
+
+```{bash eval = FALSE}
+docker build -t household-app .
+```
+
+This will build the application in docker. Next,
+
+### \*\*\*Just In case, user does not have a database running, he can run -
+
+```{bash eval = FALSE}
+docker run 
+--name postgres 
+-e POSTGRES_USER=postgres 
+-e POSTGRES_PASSWORD=postgres 
+-d -p 5432:5432 
+-v :/var/lib/postgresql/data postgres:13
+```
+
+to start a new postgreSQL database container in docker with name postgres or else run,
+
+```{bash eval = FALSE}
+docker run 
+-p 8080:8080 
+--name household-app 
+--link postgres 
+-e SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres 
+-e SPRING_DATASOURCE_USERNAME=postgres 
+-e SPRING_DATASOURCE_PASSWORD=postgres household-app
+```
+
+Here we assume that user has a database container running in docker with **name-postgres, username-postgres, password-postgres**
+
+After this, user will be able to access the application at <https://localhost:8080/> in browser.

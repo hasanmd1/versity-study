@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maintenance Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="../../static/styles/style.css" th:href="@{'/styles/style.css'}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        td:hover {
+            background-color: #d9d9d9;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd85;
+        }
+
+        .household-btn {
+            border: none;
+            width: 10rem;
+            padding: 0.6rem;
+            border-radius: 5px;
+            background: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+        }
+
+        .create-household-btn {
+            border: none;
+            width: 10rem;
+            padding: 0.6rem;
+            border-radius: 5px;
+            background: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+        }
+        .column-name{
+            font-weight: bolder;
+        }
+
+        .maintenance-details-container {
+            border: 3px solid #d9d9d9;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            height: 20%;
+        }
+
+        .maintenance-details-left {
+            padding: 15px 10px;
+            align-content: stretch;
+            width: 63%;
+        }
+
+        .maintenance-details-title h1 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .maintenance-details-title h2 {
+            font-size: 16px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .maintenance-details-description h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .maintenance-details-description{
+            border-top: 3px solid #d9d9d9;
+            border-spacing: 3px;
+            padding: 3px;
+            height: 80%;
+        }
+
+        .maintenance-details-description p {
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.5;
+            margin-bottom: 15px;
+
+        }
+
+        .maintenance-details-right {
+            border-left: 3px solid #d9d9d9;
+            border-radius: 0px;
+            justify-content: center;
+            padding-bottom: 10px;
+            padding-top: 15px;
+            padding-left: 10px;
+            width: 33%;
+        }
+
+        .maintenance-details-section h3 {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .maintenance-details-section p {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .button-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    </style>
+
+</head>
+<body>
+<div style="background: #32be8f">
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="sidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" th:href="@{'/welcome'}" class="w3-bar-item w3-button">Main page</a>
+        <a th:href="@{'/household/' + ${householdId}}" class="w3-bar-item w3-button">Manage household</a>
+        <a th:href="@{'/household/' + ${householdId} + '/locations'}" class="w3-bar-item w3-button">Manage locations</a>
+        <a th:href="@{'/household/' + ${householdId} + '/items'}" class="w3-bar-item w3-button">Manage items</a>
+        <a th:href="@{'/household/' + ${householdId} + '/category'}" class="w3-bar-item w3-button">Manage categories</a>
+        <a th:href="@{'/household/' + ${householdId} + '/maintenance'}" class="w3-bar-item w3-button">Manage maintenances</a>
+        <a th:href="@{'/household/' + ${householdId} + '/logs'}" class="w3-bar-item w3-button">Logs</a>
+        <a href="#" th:href="@{'/logout'}" class="w3-bar-item w3-button">Logout</a>
+    </div>
+</div>
+<button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">Menu</button>
+
+
+<div class="p-4">
+
+    <div class="maintenanceTaskTable" style="margin-top: 20px">
+
+        <div class="d-flex justify-content-between">
+            <h3 style="margin-top: auto">Details of Maintenance <span th:text="${maintenance.title}"></span>:</h3>
+        </div>
+        <div>&nbsp;&nbsp;</div>
+        <div class="maintenance-details-container">
+            <div class="maintenance-details-left">
+                <div class="maintenance-details-title">
+                    <h1>Maintenance Details - </h1>
+                    <h2 th:text="'Title:' + ${maintenance.title}">Title</h2>
+                </div>
+                <div class="maintenance-details-description">
+                    <h3>Description</h3>
+                    <p th:text="${maintenance.description}">Description</p>
+                </div>
+            </div>
+            <div class="maintenance-details-right">
+                <div class="button-section">
+                    <div th:if="${permission} and ${!maintenance.taskState}">
+                        <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/maintenanceTask/add'}">
+                            <button class="household-btn">+ Generate MaintenanceTask</button></a>
+                    </div>
+                    <div>
+                        <p style="color: #f44336" th:if="${generationState != null} and ${!generationState}">Task could not be generated as all the tasks exists until End Date</p>
+                    </div>
+                    <div>&nbsp;&nbsp;</div>
+                    <div>
+                        <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/changeState'}">
+                            <button class="household-btn">+- Change State Resolve</button></a>
+                    </div>
+                    <div>&nbsp;&nbsp;</div>
+                    <div th:if="${permission}">
+                        <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/editIn'}">
+                            <button class="household-btn">+- Edit Maintenance</button></a>
+                    </div>
+                    <div>&nbsp;&nbsp;</div>
+                    <div th:if="${permission}">
+                        <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/delete'}" onclick="return showConfirmation(event, this)">
+                            <button class="household-btn">- Delete Maintenance</button></a>
+                    </div>
+                </div>
+                <div>&nbsp;&nbsp;</div>
+                <div class="maintenance-details-section">
+                    <h3>Start Date</h3>
+                    <p th:text="${maintenance.startDate}">Start Date</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>End Date</h3>
+                    <p th:text="${maintenance.endDate}">End Date</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Deadline</h3>
+                    <p th:text="${maintenance.deadline}">Deadline</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Frequency</h3>
+                    <p th:text="${maintenance.frequency} + ' ' + ${maintenance.frequencyPeriod.frequencyPeriod}">Frequency</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Reporter</h3>
+                    <p th:text="${maintenance.reporter.user.username} + ' -(' + ${maintenance.reporter.user.firstName} + ' ' + ${maintenance.reporter.user.lastName} + ')'">Reporter</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Assignee</h3>
+                    <p th:text="${maintenance.assignee.user.username} + ' -(' + ${maintenance.assignee.user.firstName} + ' ' + ${maintenance.assignee.user.lastName} + ')'">Assignee</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Resolution</h3>
+                    <p th:if="${maintenance.taskResolution}" class="resolution-green">RESOLVED</p>
+                    <p th:if="${!maintenance.taskResolution}" class="resolution">NOT RESOLVED</p>
+                </div>
+                <div class="maintenance-details-section">
+                    <h3>Status</h3>
+                    <p th:if="${maintenance.taskState}" class="state-red">CLOSED</p>
+                    <p th:if="${!maintenance.taskState}" class="state">NOT CLOSED</p>
+                </div>
+            </div>
+        </div>
+
+        <div>&nbsp;&nbsp;</div>
+
+        <div class="d-flex justify-content-between">
+            <h3 style="margin-top: auto">Available Auto Generated Maintenance Tasks of Maintenance <span th:text="${maintenance.title}"></span>:</h3>
+        </div>
+
+        <table class="mt-4">
+            <thead>
+            <tr class="bg-dark text-white">
+                <th>Title</th>
+                <th>Details</th>
+                <th>Start Date</th>
+                <th>Reporter</th>
+                <th>Assignee</th>
+                <th>Deadline</th>
+                <th>State</th>
+                <th>Resolution</th>
+                <th th:if="${permission}">Close Task</th>
+                <th th:if="${permission}">Edit</th>
+                <th th:if="${permission}">Delete</th>
+            </tr>
+            </thead>
+            <tr th:each="task : ${maintenanceTask}">
+                <td th:text="${task.title}">Title</td>
+                <td>
+                    <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/maintenanceTask/' + ${task.id}}">Detail</a>
+                </td>
+                <td th:text="${task.startDate}">Generation Date</td>
+                <td th:text="${task.reporter.user.username}">Reporter</td>
+                <td th:text="${task.assignee.user.username}">Assignee</td>
+                <td th:text="${task.deadline}">Deadline</td>
+                <td>
+                    <span th:if="${task.taskState}" class="state-red">CLOSED</span>
+                    <span th:if="${!task.taskState}" class="state">NOT CLOSED</span>
+                </td>
+                <td>
+                    <span th:if="${task.taskResolution}" class="resolution-green">RESOLVED</span>
+                    <span th:if="${!task.taskResolution}" class="resolution">NOT RESOLVED</span>
+                </td>
+                <td th:if="${permission}">
+                    <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/maintenanceTask/' + ${task.id} + '/stop'}">Close</a>
+                </td>
+                <td th:if="${permission}">
+                    <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/maintenanceTask/' + ${task.id} + '/edit'}">Edit</a>
+                </td>
+                <td th:if="${permission}">
+                    <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/maintenanceTask/' + ${task.id} + '/delete'}" onclick="showConfirmation(event, this)">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>&nbsp;&nbsp;</div>
+    <div style="text-align: right;">
+        <div style="display: inline-block">
+            <div>
+                <a th:href="@{'/household/' + ${householdId} + '/maintenance/' + ${maintenance.id} + '/return'}">
+                    <button class="household-btn">Return</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>&nbsp;&nbsp;</div>
+
+<script type="text/javascript" src="../../static/js/test.js" th:src="@{/js/test.js}"></script>
+</body>
+</html>

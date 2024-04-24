@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>registrationConfirm</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles/style.css" th:href="@{'/styles/style.css'}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js" th:src="@{https://kit.fontawesome.com/a81368914c.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body{
+            overflow: auto;
+        }
+        h1{
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .alert {
+            display: block;
+            padding: 20px;
+            background-color: mediumaquamarine;
+            color: white;
+        }
+        .login-content .input-div{
+            padding: 0px;
+        }
+        .login-btn{
+            visibility: visible;
+            justify-content: center;
+            text-decoration: none;
+            color: #999;
+            font-size: 1rem;
+        }
+        .try-login{
+            display: block;
+            width: 100%;
+            height: 40px;
+            border-radius: 25px;
+            outline: none;
+            border: none;
+            background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+            background-size: 200%;
+            font-size: 1.2rem;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .try-login:hover{
+            background-position: right;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<img class="wave" src="../static/images/wave.png" th:src="@{/images/wave.png}">
+<div class="container">
+    <div class="img">
+        <img src="../static/images/bg.svg" th:src="@{/images/bg.svg}">
+    </div>
+    <div class="login-content">
+        <form action="#" th:action="@{/signup}" th:object="${user}" method="post">
+            <div style="display: flex; align-items: center;">
+                <img src="../static/images/avatar.svg" th:src="@{/images/avatar.svg}">
+                <h1 class="title" style="margin-left: 1rem;">Email verification</h1>
+            </div>
+
+            <div style="display: flex;margin-top: 1rem;">
+                <div style="flex: 50%;">
+                        <span class="login-btn">
+                            Have you verified your email?
+                            <a href="#" th:href="@{'/login'}" class = "try-login" >Login</a>
+                        </span>
+                </div>
+            </div>
+
+            <br>
+
+            <div class = "alert">
+                <strong>Successful!</strong> Your email address is verified!
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="../static/js/test.js" th:src="@{/js/test.js}">
+</script>
+</body>
+</html>

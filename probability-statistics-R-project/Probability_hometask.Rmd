@@ -1,0 +1,729 @@
+---
+title: "Probability and Statistics Homework"
+author: "Prepared by: Md Zahid Hasan"
+date: '`r paste("Date:",Sys.Date())`'
+mainfont: Roboto Light
+fontsize: 10pt
+geometry: "left=3cm,right=3cm,top=3cm,bottom=3cm"
+documentclass: report
+header-includes:
+- \usepackage{titling}
+- \pretitle{\begin{center}\LARGE\includegraphics[width=12cm]{/Users/apple/Downloads/czech-technical-university-in-prague-vector-logo-2022.png}\\[\bigskipamount]}
+- \posttitle{\end{center}}
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    highlight: tango
+---
+
+Firstly, we will import packages necessary for writing R script.
+
+```{r message = FALSE, warning=FALSE}
+install.packages(c(
+  "Sleuth2", "dplyr", "DataExplorer", 
+  "Hmisc", "pastecs", "UsingR", 
+  "ggplot2", "ggfortify", "scales", 
+  "plotly", "pracma", "fitdistrplus"), 
+  contriburl = contrib.url(
+    "https://cran.r-project.org/bin/windows/contrib/4.0/R.rsp_0.44.0.zip"))
+```
+
+Next, we will import the libraries.
+
+```{r message=FALSE, warning=FALSE}
+library(Sleuth2)
+library(dplyr)
+library(DataExplorer)
+library(Hmisc) 
+library(pastecs) 
+library(UsingR)
+library(ggplot2)
+library(ggfortify)
+library(scales)
+library(plotly)
+library(pracma)
+library(fitdistrplus)
+```
+
+### \textbf{Task - 1 : (1pt) }Load the data set and separate the data into the two observed parts. Provide an overview of each of them by estimating the expectation, variance and median of the corresponding distribution and briefly describing the nature of the studied problem.
+
+Answer. 
+
+For this homework we will use case0101 of library Sleuth2.
+
+It contains data from an experiment concerning the effects of intrinsic and extrinsic motivation on creativity. Subjects with considerable experience in creative writing were randomly assigned to one of two treatment groups.
+
+```{r}
+Sleuth2::case0101
+```
+
+
+At first, we store the case0101 data in mc data-set. 
+
+We know, Expectation/Mean,
+\[E[X] = \sum x_{i}P_{i}\]
+also variance, 
+\[S^2 = \frac{\sum (x_{i}-\bar{x})^2}{n-1}\]
+finally, median,
+\[Med(x) = \begin{cases}
+            X[\frac{n+1}{2}] &: \text{if n is odd}\\
+            \frac{X[\frac{n+1}{2}]+X[\frac{n}{2}]}{2} &: \text{if n is even}
+            \end{cases}\]
+
+
+But here we use sample mean to calculate mean value.
+\[\bar{x} = \frac{\sum x_i}{n}\]
+
+
+We can use mean(), var(), median() to get the mean, variance and median values for mc data-set.
+
+We used summary(), dim(), describe(), stat.desc(), attributes() for displaying more information.
+```{r eval=TRUE, echo=TRUE}
+mc <- case0101
+
+mean(mc$Score)
+var(mc$Score)
+median(mc$Score)
+summary(mc)
+dim(mc)
+describe(mc)
+stat.desc(mc)
+attributes(mc)
+```
+
+In the next step, we will filter the data-set for Intrinsic Treatment type(In) and similarly, mean, variance, median and other information for In.
+
+```{r eval=TRUE, echo=TRUE}
+In <- filter(mc, mc$Treatment == "Intrinsic")
+
+mean(In$Score)
+var(In$Score)
+median(In$Score)
+describe(In$Score)
+stat.desc(In$Score)
+summary(In$Score)
+```
+
+In the next step, we will filter the data-set for Extrinsic Treatment type(ex) and similarly, mean, variance, median and other information for ex.
+
+```{r eval=TRUE, echo=TRUE}
+ex <- filter(mc, mc$Treatment == "Extrinsic")
+
+mean(ex$Score)
+var(ex$Score)
+median(ex$Score)
+describe(ex$Score)
+stat.desc(ex$Score)
+summary(ex$Score)
+```
+
+
+### \textbf{Task - 2 : (1pt) }For each group separately, estimate the density and distribution function of the data using the histogram and the empirical distribution function.
+
+Answer.
+
+We know, density or mass is,
+\[_{px}(x) = P(X = x_{i}) \]
+and cumulative distribution function is, 
+\[F(x) = \sum P(X \le x_{i})\]
+
+In this task, we have to generate density and distribution functions for both Intrinsic => In and Extrinsic => ex data-sets. Lets start with In.
+
+First generate histogram then the curve which shows the density of In.We use hist() function to generate histograms and lines() to show the density along histogram.We use density() function to get density of data-set.
+
+Next generate the ecdf() function and from that plot the distribution of In. ggfortify::ggistribution() is used to show continuous distribution increase. ggplot2::labs() function is used to specify the names and other parameters of graphs.
+
+```{r eval=TRUE, echo=TRUE}
+hist(In$Score , 
+     col = "skyblue2", 
+     main = "Histogram of Intrinsic Treatment", 
+     ylab = "Intrinsic Tratment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 8, 
+     probability = T)
+lines(density(In$Score), 
+      col = "chocolate3")
+plot(density(In$Score), 
+     frame = TRUE, 
+     col = "red", 
+     main = "Density of Histogram of Intrinsic Treatment", 
+     ylab = "Intrinsic Tratment Amount", 
+     xlab = "Score")
+
+
+
+
+
+
+#ecdf graph generating
+In.ecdf = ecdf(In$Score)
+plot(In.ecdf, 
+     xlab = "Score", 
+     main = "Empirical Cumluative Distribution For Intrinsic Treatment", 
+     ylab = "Intrinsic Treatment amount")
+  ggfortify::ggdistribution(In.ecdf, 
+                            In$Score, 
+                            colour = "black", 
+                            alpha = 0.7, 
+                            fill = "skyblue") +
+    ggplot2::labs(
+      title = 
+        "Cumulative Distribution Function for Intrinsic Treatment") + 
+    ggplot2::xlab ("Score") + 
+    ggplot2::ylab ("Frequency")
+```
+
+
+Then, generate histogram then the curve which shows the density of ex.
+
+Next generate the ecdf function and from that plot the distribution of
+ex.
+
+```{r eval=TRUE, echo=TRUE}
+hist(ex$Score, 
+     col = "lightgreen", 
+     main = "Histogram of Extrinsic Treatment", 
+     ylab = "Extrinsic Tratment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 8, 
+     probability = T)
+lines(density(ex$Score), 
+      col = "orange3")
+
+plot(density(ex$Score), 
+     frame = TRUE, 
+     col = "red", 
+     main = "Histogram of Intrinsic Treatment", 
+     ylab = "Intrinsic Tratment Amount", 
+     xlab = "Score")
+
+
+#ecdf graph generating    
+ex.ecdf = ecdf(ex$Score)
+plot(ex.ecdf, 
+     xlab = "Score", 
+     main = "Empirical Cumluative Distribution For Extrinsic Treatment", 
+     ylab = "Extrinsic Treatment amount")
+  ggfortify::ggdistribution(ex.ecdf, 
+                            ex$Score, 
+                            colour = "red", 
+                            alpha = 0.7, 
+                            fill = "skyblue") + 
+    ggplot2::labs(title = 
+                    "Cumulative Distribution Function for Extrinsic Treatment", ) + 
+    ggplot2::xlab ("Score") + 
+    ggplot2::ylab ("Frequesncy")
+```
+
+
+
+### \textbf{Task - 3 : (3pt) }For each of the observed parts separately, find the most similar distribution: Estimate the parameters of the normal, exponential and uniform distribution. Insert the corresponding densities with estimated parameters into the plot of the histogram. Discuss which of them fits the data best.
+
+Answer.
+
+We know that,
+Formula for normal distribution,
+\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}.\exp^-\frac{1}{2}(\frac{x-\mu}{\sigma})^2)\]
+Exponential distribution,
+\[f(x) = \begin{cases}
+          \frac{1}{(b-a)} &: a \le x \le b\\
+          0 &: x < a \| x > b
+          \end{cases}
+\]
+Uniform distribution,
+\[f(x) = \begin{cases}
+          \lambda.\exp^-(\lambda.x) &: x \geq 0\\
+          0 &: x < 0
+          \end{cases}
+\]
+Standard deviation,
+\[\sigma = \sqrt{ \frac{\sum(x_{i}-\mu)^2}{N}}\]
+Expectation,
+\[E[X] = \sum x_{i}P_{i}\]
+
+Standard deviation for uniform distribution,
+\[\sigma = \sqrt(\frac{\sum(x_{i}-\mu)^2}{N}) = \frac{(b-a)^2}{12}\]
+Expectation for uniform distribution,
+\[E[X] = \sum x_{i}P_{i} = \frac{(a+b)}{2}\]
+Now, we also need to consider maximum likelihood of three distribution
+For uniform distribution, 
+\[\hat b_n = max(1,...,n) \]
+For normal distribution, 
+\[\hat\mu_n = \frac{\sum x_{i}}{n} \]
+For exponential distribution, 
+\[\hat\lambda_n = \frac{1}{\frac{\sum x_{i}}{n} }\]
+
+In this problem we have to generate histogram of two datasets
+Intrinsic(In) and Extrinsic(ex).
+
+At first lets start with Intrinsic data frame/dataset. First task is to calculate different parameters necessary to calculate the distributions for In. We are going to need mean value and standard deviation, a, b(for uniform distribution) for both In and ex. We get a+b(a_b) from expectation value and b - a(a__b) from standard deviation for(1st quadrant so b-a will be positive)
+
+Then we use these functions, 
+dnorm() for normal, 
+dexp() for exponential, 
+dunif() for uniform distribution
+
+Then we can generate the histogram and plot the distributions.
+
+```{r eval=TRUE, echo=TRUE}
+mean_In <- mean(In$Score)
+sd_In <- sqrt(var(In$Score))
+a_b <- (mean(In$Score) * 2)#a+b
+a__b <- (sqrt(var(In$Score) * 12))#b-a
+a <- ((a_b - a__b) / 2) 
+b <- ((a_b + a__b) / 2) 
+In_x <- seq(min(In$Score), 
+            max(In$Score), 
+            length=1000) 
+In_y_normal <- dnorm(In$Score, 
+                     mean_In, sd_In) 
+In_y_expon <- dexp(In$Score, 
+                   rate = 1/mean_In)
+In_y_uniform <- dunif(In$Score, 
+                      min = a, 
+                      max = b, 
+                      log = FALSE)
+
+x = hist(In$Score , 
+         col = "skyblue2", 
+         main = "Histogram of Intrinsic Treatment", 
+         ylab = "Intrinsic Tratment Amount", 
+         xlab = "Score", 
+         plot = TRUE, 
+         breaks = 12, 
+         probability = T, 
+         ylim = c(0, 0.2), 
+         xlim = c(10, 35))
+legend("topright", 
+       seg.len = 2, 
+       c("Normal Distribution", "Exponential Distribution", 
+         "Uniform Distribution"), 
+       fill=c("red", "#336633", "#0033FF")) 
+lines(In$Score, 
+      In_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+lines(In$Score, 
+      In_y_expon, 
+      type = "l", 
+      col =c("#336633", "#0000FF"), 
+      lwd = "3")
+first <-first(which(In_y_uniform != 0))
+last <- last(which(In_y_uniform != 0))
+lines(In$Score[first:last], 
+      In_y_uniform[first:last], 
+      col =c("#0033FF"), 
+      lwd = "3")
+
+
+#We used sum of the indexes for uniform distribution as they are 0 in that range
+#Now we need to have maximum likelihood of estimator for Normal, Exponential and uniform distribution.
+ib_uniform = max(In$Score)
+ib_exponen = 24/sum(In$Score)
+ib_normal = sum(In$Score)/24
+imin = min(abs(ib_uniform-sum(In$Score)/24), abs(ib_normal-sum(In$Score)/24), abs(ib_exponen-sum(In$Score)/24))
+#As ib_normal is close to the average of the data.So,
+print(paste("The normal distribution fits the data best.", imin))
+#We can see that only normal distribution has the minimum distance
+```
+
+
+Similarly, let's calculate differnet parameters necessary to calculate the distributions for ex.
+
+
+
+```{r eval=TRUE, echo=TRUE}
+mean_ex <- mean(ex$Score)
+sd_ex <- sqrt(var(ex$Score))
+a_b <- (mean(ex$Score) * 2)
+a__b <- (sqrt(var(ex$Score) * 12))
+a <- ((a_b - a__b) / 2)
+b <- ((a_b + a__b) / 2)
+ex_x <- seq(min(ex$Score), 
+            max(ex$Score), 
+            length=1000)
+ex_y_normal <- dnorm(ex$Score, 
+                     mean_ex, 
+                     sd_ex)
+ex_y_expon <- dexp(ex$Score, 
+                   rate = 1/mean_ex)
+ex_y_uniform <- dunif(ex$Score, 
+                      min = a, 
+                      max = b, 
+                      log = FALSE)
+
+y <- hist(ex$Score, 
+          col = "lightgreen", 
+          main = "Histogram of Extrinsic Treatment", 
+          ylab = "Extrinsic Tratment Amount", 
+          xlab = "Score", 
+          plot = TRUE, 
+          breaks = 8, 
+          probability = T, 
+          ylim = c(0, .2), 
+          xlim = c(0, 30))
+legend("topright", 
+       seg.len = 1, 
+       c("Normal Distribution", 
+         "Exponential Distribution", 
+         "Uniform Distribution"), 
+       fill=c("red", "#336633", "#0033FF"))
+lines(ex$Score, ex_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+lines(ex$Score, 
+      ex_y_expon, 
+      type = "l", 
+      col =c("#336633", "#0000FF"), 
+      lwd = "3")
+first <-first(which(ex_y_uniform != 0))
+last <- last(which(ex_y_uniform != 0))
+lines(ex$Score[first:last], 
+      ex_y_uniform[first:last], 
+      col =c("#0033FF"), 
+      lwd = "3")
+
+eb_uniform = max(ex$Score)
+eb_exponen = 23/sum(ex$Score)
+eb_normal = sum(ex$Score)/23
+emin = min(abs(eb_uniform-eb_normal), abs(eb_normal-eb_normal), abs(eb_exponen-eb_normal))
+#As ib_normal is close to the average of the data.So,
+print(paste("The normal distribution fits the data best with difference", emin))
+
+```
+
+
+### \textbf{Task - 4 : (1pt) }For each of the groups, generate a random sample of 100 observations from the distribution you have chosen in the previous part, with parameters estimated from the data. Compare the histogram of the simulated values with the original data.
+
+Answer.
+
+For solving this problem, we first need to get a plot space for 4 graphs. We use par() to get the space.
+
+```{r eval=TRUE, echo=TRUE}
+graph <- par(mfrow = c(2,2), 
+             cex = .4, 
+             mai = c(.3, .3, .3, .3))
+```
+
+Next, we generate new In100 vector with 100 random sample data which contains the same expected value and standard deviation as normal distribution.We will use dnorm() function for that. Next we plot both of these(new random, data from case0101) in two different histograms.
+
+```{r eval=TRUE, echo=TRUE, warning=FALSE}
+In100 <- rnorm(100, 
+               mean_In, 
+               sd_In)
+In_100 <- seq(min(In100), 
+              max(In100), 
+              length=100)
+In_y_normal100 <- dnorm(In_100, 
+                        mean_In, 
+                        sd_In)
+graph[1:1] <- hist(In100 , 
+                   col = "blue", 
+                   main = "New Histogram of Intrinsic Treatment(random data)", 
+                   ylab = "Intrinsic Tratment Amount", 
+                   xlab = "Score", 
+                   plot = TRUE, 
+                   breaks = 12, 
+                   probability = T, 
+                   ylim = c(0, 0.16))
+lines(In_100, 
+      In_y_normal100, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+graph[1:2] <- hist(In$Score , 
+                   col = "skyblue2", 
+                   main = "Histogram of Intrinsic Treatment", 
+                   ylab = "Intrinsic Tratment Amount", 
+                   xlab = "Score", 
+                   plot = TRUE, 
+                   breaks = 12, 
+                   probability = T, 
+                   ylim = c(0, 0.16), 
+                   xlim = c(10, 35))
+lines(In$Score, 
+      In_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+```
+
+Same for ex100.
+
+```{r eval=TRUE, echo=TRUE, warning=FALSE}
+ex100 <- rnorm(100, 
+               mean_ex, 
+               sd_ex)
+ex_100 <- seq(min(ex100), 
+              max(ex100), 
+              length=100)
+ex_y_normal100 <- dnorm(ex_100, 
+                        mean_ex, 
+                        sd_ex)
+graph[2:1] <- hist(ex100, 
+                   col = "green", 
+                   main = "New Histogram of Extrinsic Treatment", 
+                   ylab = "Extrinsic Treatment Amount", 
+                   xlab = "Score", 
+                   plot = TRUE, 
+                   breaks = 12, 
+                   probability = T, 
+                   ylim = c(0, .16), 
+                   xlim = c(0, 30))
+lines(ex_100, 
+      ex_y_normal100, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+graph[2:2] <- hist(ex$Score, 
+                   col = "lightgreen", 
+                   main = "Histogram of Extrinsic Treatment", 
+                   ylab = "Extrinsic Tratment Amount", 
+                   xlab = "Score", 
+                   plot = TRUE, 
+                   breaks = 12, 
+                   probability = T, 
+                   ylim = c(0, .16), 
+                   xlim = c(0, 30))
+lines(ex$Score, 
+      ex_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+```
+
+Our par() function generates the following graphs.
+
+![4Graphs](/Users/apple/Downloads/Rplot19.jpeg)
+
+
+
+
+Thus we get 4 graphs for all 4 possible combination. Now, by comparing Intrinsic and Extrinsic random generated and actual data, **we see that
+in random generated, the normal distribution has the tails from and till
+the beginning and end of data.**
+
+**It also proves that our calculation comes from the the normal
+distribution as both of them has same kurtosis and skewdness.**
+
+### \textbf{Task - 5 : (1pt) }For both parts separately, compute the two-sided
+confidence interval for the expected value with confidence level 95%.
+
+Answer.
+
+We know that the formula for calculating confidence level is, \[\Biggl \langle X_n - \frac{t_{n-1} . \frac{\alpha}{2} . sd}{\sqrt{n}}, X_n + \frac{t_{n-1} . \frac{\alpha}{2} . sd}{\sqrt{n}}\Biggl \rangle\]
+
+
+\[\alpha = \frac{100-confidence}{100}\]
+\[n  = \text{length of data-set}\].
+
+
+So, first we start with Intrinsic treatments. We have mean and standard deviations from previous tasks.
+
+```{r eval=TRUE, echo=TRUE}
+In_lefttail = mean_In+
+  (qt(.05/2, 23) * 
+     sd_In / sqrt(24))
+In_righttail = mean_In-
+  (qt(.05/2, 23) * 
+     sd_In / sqrt(24))
+hist(In$Score , 
+     col = "skyblue2", 
+     main = "Confidence level interval for Intrinsic Treatment", 
+     ylab = "Intrinsic Treatment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 7, 
+     probability = T, 
+     ylim = c(0, 0.2), 
+     xlim = c(10, 35))
+lines(In$Score, 
+      In_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+abline(v = In_lefttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = In_righttail, 
+       col = "red", 
+       lwd = "2")
+```
+
+We can also view the values as, 
+```{r eval=TRUE, echo=TRUE}
+In_lefttail
+In_righttail
+```
+
+
+Next, we have to calculate similarly for extrinsic treatment.
+```{r eval=TRUE, echo=TRUE}
+ex_lefttail = mean_ex+
+  (qt(.05/2, 22) * 
+     sd_ex / sqrt(23))
+ex_righttail = mean_ex-
+  (qt(.05/2, 22) * 
+     sd_ex / sqrt(23))
+hist(ex$Score, 
+     col = "lightgreen", 
+     main = "Confidence level interval for Extrinsic Treatment", 
+     ylab = "Extrinsic Treatment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 7, 
+     probability = T, 
+     ylim = c(0, .2), 
+     xlim = c(0, 30))
+lines(ex$Score, 
+      ex_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+abline(v = ex_lefttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = ex_righttail, 
+       col = "red", 
+       lwd = "2")
+```
+
+The values are
+```{r}
+ex_lefttail
+ex_righttail
+```
+
+
+
+### \textbf{Task - 6 : (1pt) }Perform a test of the hypothesis, whether the expectation of either of the parts of the data set is equal to K (assignment parameter) against the two-sided alternative, on level of significance 5%. You can use either the previous result or an in-built function.
+
+Answer.
+
+Here in this problem, let's established the null hypothesis and its alternative for both groups with K = 15 as,
+
+\[H_{0}: \mu_{l} = 15, H_{A}: \mu_{l} \neq 15\]
+
+Our \[\mu_{l}\] is treated as z in picture.
+
+![Hypothesis testing basis](/Users/apple/Desktop/hypothesis.png)
+
+We have to verify whether the null hypothesis is true based on the results from the previous task. That is, whether the value belongs to the interval calculated in In_lefttail and In_righttail variables, which was created in the previous task.
+
+\textbf{k = 15}
+```{r eval=TRUE, echo=TRUE}
+k = 15
+if(k >= In_lefttail && k <= In_righttail){
+  print('Is not rejected for Intrinsic')
+}else{
+  print('Is rejected for Intrinsic')
+}
+hist(In$Score , 
+     col = "skyblue2", 
+     main = "Confidence level interval for Intrinsic Treatment", 
+     ylab = "Intrinsic Treatment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 7, 
+     probability = T, 
+     ylim = c(0, 0.2), 
+     xlim = c(10, 35))
+lines(In$Score, 
+      In_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+abline(v = In_lefttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = In_righttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = 15, 
+       col = "purple", 
+       lwd = "2")
+```
+
+Similarly for Extrinsic amount we get that the testing is not rejected.
+```{r eval=TRUE, echo=TRUE}
+if(k >= ex_lefttail && 
+   k <= ex_righttail){
+  print('Is not rejected for Extrinsic')
+}else{
+  print('Is rejected for Extrinsic')
+}
+hist(ex$Score, 
+     col = "lightgreen", 
+     main = "Confidence level interval for Extrinsic Treatment", 
+     ylab = "Extrinsic Treatment Amount", 
+     xlab = "Score", 
+     plot = TRUE, 
+     breaks = 7, 
+     probability = T, 
+     ylim = c(0, .2), 
+     xlim = c(0, 30))
+lines(ex$Score, 
+      ex_y_normal, 
+      type = "l", 
+      col = "red", 
+      lwd = "3")
+abline(v = ex_lefttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = ex_righttail, 
+       col = "red", 
+       lwd = "2")
+abline(v = 15, 
+       col = "purple", 
+       lwd = "2")
+```
+
+
+
+### \textbf{Task - 7 : (2pt) } Perform a test of the hypothesis, whether the expectations of both observed parts are equal. Use level of significance 5%. Choose the type of test and the alternative hypothesis in a way which corresponds with the examined problem best.
+
+Answer.
+
+We test whether the expected heights are equal, against the alternative that they are not, on \[\alpha = 5\%\].
+
+Here in this problem, let's established the null hypothesis and its alternative for both groups as,
+
+\[H_{0}: \mu_{l} = \mu_{x}, H_{A}: \mu_{l} \neq \mu_{x}\]
+
+
+First we deal with equal or unequal variances. Now, we perform var.test() to test equality of variances.
+```{r}
+var.test(In$Score, ex$Score)
+```
+
+As the p-value in var.test() is greater than significant level we can use t.test() for the hypothesis testing.
+
+![Hypothesis testing basis](/Users/apple/Desktop/Screenshot 2022-12-19 at 16.03.39.png)
+
+Now we can use t.test() function to compare the expectations for both dataset expectations. Here in the result, df in result refers to \[S_{12}\] and t refers to the T value in picture.
+
+```{r eval=TRUE, echo=TRUE}
+res <- t.test(In$Score, ex$Score, paired =  F, conf.level = .95, alternative = "two.sided", var.equal = T)
+t.test(In$Score, ex$Score, paired =  F, conf.level = .95, alternative = "two.sided", var.equal = T)
+```
+
+Here in the t.test result we can see that p value is less than .05, significant level. Also t value is greater than calculated |T| value(from picture). Therefore we can conclude that expectation of both observed parts are not equal. 
+
+```{r}
+if(res$p.value > .05){
+  print('We do not reject the null hypothesis of equality')
+}else{
+  print('We reject the null hypothesis of equality')
+}
+
+```
+
+Now if we check for variances not equal, we get same result for different confidence level.
+
+```{r eval=TRUE, echo=TRUE}
+t.test(In$Score, ex$Score, paired =  F, conf.level = .95, alternative = "two.sided", var.equal = F)
+```

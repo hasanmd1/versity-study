@@ -1,0 +1,211 @@
+COMMAND     PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+loginwind   375 hyeonjikang    8u  IPv4 0xadc854192aafdb1d      0t0  UDP *:*
+rapportd    568 hyeonjikang    4u  IPv4 0xadc854192a1594ad      0t0  UDP *:*
+rapportd    568 hyeonjikang    5u  IPv4 0xadc854192a15c8bd      0t0  UDP *:*
+WiFiAgent   579 hyeonjikang    5u  IPv4 0xadc854192a15aa1d      0t0  UDP *:*
+identitys   584 hyeonjikang   22u  IPv4 0xadc854192a15ffdd      0t0  UDP *:*
+identitys   584 hyeonjikang   30u  IPv4 0xadc854192aafb34d      0t0  UDP *:*
+ControlCe   613 hyeonjikang   10u  IPv4 0xadc854192aaff39d      0t0  UDP *:*
+sharingd    656 hyeonjikang    4u  IPv4 0xadc854192aafb03d      0t0  UDP *:*
+sharingd    656 hyeonjikang    8u  IPv4 0xadc854192ab0396d      0t0  UDP *:*
+sharingd    656 hyeonjikang    9u  IPv4 0xadc854192ab0429d      0t0  UDP *:*
+sharingd    656 hyeonjikang   10u  IPv4 0xadc854192ab045ad      0t0  UDP *:*
+sharingd    656 hyeonjikang   11u  IPv4 0xadc854192a15b34d      0t0  UDP *:*
+sharingd    656 hyeonjikang   22u  IPv4 0xadc854192ab04edd      0t0  UDP *:*
+sharingd    656 hyeonjikang   23u  IPv4 0xadc854192ab048bd      0t0  UDP *:*
+ScaleFT     851 hyeonjikang   14u  IPv6 0xadc8541929beaccd      0t0  TCP 127.0.0.1:49229->127.0.0.1:49225 (ESTABLISHED)
+sft         923 hyeonjikang    9u  IPv4 0xadc8541929bc10dd      0t0  TCP 127.0.0.1:49225 (LISTEN)
+sft         923 hyeonjikang   10u  IPv4 0xadc8541929bb7bad      0t0  TCP 127.0.0.1:49225->127.0.0.1:49229 (ESTABLISHED)
+java       1864 hyeonjikang   85u  IPv6 0xadc8541929bf08cd      0t0  TCP 127.0.0.1:64825->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   90u  IPv6 0xadc854191db7accd      0t0  TCP *:53847 (LISTEN)
+java       1864 hyeonjikang   91u  IPv6 0xadc854191db8accd      0t0  TCP 127.0.0.1:64830->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   94u  IPv6 0xadc854191db8bacd      0t0  TCP 127.0.0.1:64831->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   95u  IPv6 0xadc854191db8cfcd      0t0  TCP 127.0.0.1:64832->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   96u  IPv6 0xadc854191db797cd      0t0  TCP 127.0.0.1:64833->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   97u  IPv6 0xadc854191db7c1cd      0t0  TCP 127.0.0.1:64834->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   98u  IPv6 0xadc854191db7bacd      0t0  TCP 127.0.0.1:64835->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang   99u  IPv6 0xadc8541929bec8cd      0t0  TCP 127.0.0.1:64836->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang  100u  IPv6 0xadc8541929becfcd      0t0  TCP 127.0.0.1:64837->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang  101u  IPv6 0xadc8541929bea5cd      0t0  TCP 127.0.0.1:64838->127.0.0.1:5432 (CLOSE_WAIT)
+java       1864 hyeonjikang  102u  IPv6 0xadc8541929be25cd      0t0  TCP [::1]:8080->[::1]:49174 (ESTABLISHED)
+java       1864 hyeonjikang  103u  IPv6 0xadc8541929be3acd      0t0  TCP [::1]:8080->[::1]:49158 (ESTABLISHED)
+java       1864 hyeonjikang  104u  IPv6 0xadc854191db8c1cd      0t0  TCP *:8080 (LISTEN)
+java       1864 hyeonjikang  108u  IPv6 0xadc854191db848cd      0t0  TCP [::1]:8080->[::1]:49188 (ESTABLISHED)
+com.docke 15905 hyeonjikang   27u  IPv4 0xadc854191c48667d      0t0  TCP 127.0.0.1:443->127.0.0.1:49812 (ESTABLISHED)
+com.docke 15905 hyeonjikang   28u  IPv4 0xadc8541929bc3bad      0t0  TCP *:59224 (LISTEN)
+com.docke 15905 hyeonjikang   43u  IPv4 0xadc854191c07f115      0t0  TCP *:63295 (LISTEN)
+com.docke 15905 hyeonjikang   56u  IPv4 0xadc854191c3b7115      0t0  TCP 127.0.0.1:443->127.0.0.1:51038 (ESTABLISHED)
+com.docke 15905 hyeonjikang  142u  IPv4 0xadc854191e0b9be5      0t0  TCP 127.0.0.1:60570 (LISTEN)
+com.docke 15905 hyeonjikang  145u  IPv4 0xadc8541929bb4645      0t0  TCP 127.0.0.1:80 (LISTEN)
+com.docke 15905 hyeonjikang  152u  IPv4 0xadc8541929bc8645      0t0  TCP 127.0.0.1:443 (LISTEN)
+com.docke 15905 hyeonjikang  153u  IPv6 0xadc8541929bf01cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64825 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  155u  IPv6 0xadc8541929bee5cd      0t0  TCP *:5432 (LISTEN)
+com.docke 15905 hyeonjikang  158u  IPv6 0xadc854191db8c8cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64830 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  159u  IPv6 0xadc854191db89ecd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64831 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  160u  IPv6 0xadc854191db7a5cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64832 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  161u  IPv6 0xadc854191db7b3cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64833 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  162u  IPv6 0xadc854191db7c8cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64834 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  163u  IPv6 0xadc854191db7cfcd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64835 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  164u  IPv6 0xadc8541929bec1cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64836 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  166u  IPv6 0xadc8541929be9ecd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64837 (FIN_WAIT_2)
+com.docke 15905 hyeonjikang  173u  IPv6 0xadc8541929beb3cd      0t0  TCP 127.0.0.1:5432->127.0.0.1:64838 (FIN_WAIT_2)
+com.docke 32019 hyeonjikang   14u  IPv4 0xadc8540f9421b96d      0t0 ICMP *:*
+com.docke 32019 hyeonjikang   16u  IPv4 0xadc854191c3f3bad      0t0  TCP 127.0.0.1:63356->127.0.0.1:63295 (ESTABLISHED)
+com.docke 32019 hyeonjikang   17u  IPv4 0xadc854191c48d0dd      0t0  TCP 192.168.0.53:50160->52.45.161.52:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   18u  IPv4 0xadc854191e0c1be5      0t0  TCP 192.168.0.53:60168->54.152.228.8:443 (CLOSED)
+com.docke 32019 hyeonjikang   19u  IPv4 0xadc854191c747ccd      0t0  UDP *:49519
+com.docke 32019 hyeonjikang   20u  IPv4 0xadc854191c460645      0t0  TCP 192.168.0.53:50182->54.152.228.8:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   21u  IPv4 0xadc854191c0a267d      0t0  TCP 192.168.0.53:51000->3.233.152.58:10516 (ESTABLISHED)
+com.docke 32019 hyeonjikang   22u  IPv4 0xadc854191c45c645      0t0  TCP 192.168.0.53:49769->3.215.202.3:443 (CLOSE_WAIT)
+com.docke 32019 hyeonjikang   23u  IPv4 0xadc854191c975be5      0t0  TCP 192.168.0.53:49921->18.215.115.187:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   24u  IPv4 0xadc854191c9f8645      0t0  TCP 192.168.0.53:49837->50.19.151.202:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   25u  IPv4 0xadc854191c445be5      0t0  TCP 192.168.0.53:52466->52.3.31.98:443 (CLOSED)
+com.docke 32019 hyeonjikang   26u  IPv4 0xadc854191c14f115      0t0  TCP 192.168.0.53:49820->34.196.114.8:443 (CLOSE_WAIT)
+com.docke 32019 hyeonjikang   27u  IPv4 0xadc854191c030645      0t0  TCP 192.168.0.53:51826->54.85.13.148:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   28u  IPv4 0xadc854191c3fd0dd      0t0  TCP 192.168.0.53:50129->18.210.153.86:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   29u  IPv4 0xadc854191c4bf115      0t0  TCP 192.168.0.53:64049->142.251.36.106:443 (CLOSED)
+com.docke 32019 hyeonjikang   30u  IPv4 0xadc854191c3f4645      0t0  TCP 192.168.0.53:50083->54.83.111.16:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   31u  IPv4 0xadc854191c3fbbad      0t0  TCP 192.168.0.53:49423->3.216.228.75:443 (CLOSED)
+com.docke 32019 hyeonjikang   32u  IPv4 0xadc854191c16c645      0t0  TCP 192.168.0.53:50187->18.211.104.244:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   33u  IPv4 0xadc854191e0ca67d      0t0  TCP 192.168.0.53:50059->54.147.25.99:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   34u  IPv4 0xadc854191c447115      0t0  TCP 192.168.0.53:51896->54.209.235.134:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   35u  IPv4 0xadc854191c96fbad      0t0  TCP 192.168.0.53:49968->34.192.102.130:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   36u  IPv4 0xadc854191c7476ad      0t0  UDP *:50312
+com.docke 32019 hyeonjikang   37u  IPv4 0xadc854191c3ff115      0t0  TCP 192.168.0.53:50027->54.147.25.99:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   38u  IPv4 0xadc854191e0bd0dd      0t0  TCP 192.168.0.53:58217->54.83.111.16:443 (CLOSED)
+com.docke 32019 hyeonjikang   39u  IPv4 0xadc854191c3d0645      0t0  TCP 192.168.0.53:50028->18.214.231.6:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   40u  IPv4 0xadc8541929bbdbe5      0t0  TCP 192.168.0.53:64912->35.172.68.140:443 (CLOSED)
+com.docke 32019 hyeonjikang   41u  IPv4 0xadc854191c080645      0t0  TCP 192.168.0.53:61129->34.196.114.8:443 (CLOSED)
+com.docke 32019 hyeonjikang   42u  IPv4 0xadc854191c9450dd      0t0  TCP 192.168.0.53:49718->23.20.37.98:443 (CLOSE_WAIT)
+com.docke 32019 hyeonjikang   43u  IPv4 0xadc8541929bc3115      0t0  TCP 192.168.0.53:55313->52.2.107.210:443 (CLOSED)
+com.docke 32019 hyeonjikang   44u  IPv4 0xadc854191c7420ed      0t0  UDP *:60993
+com.docke 32019 hyeonjikang   45u  IPv4 0xadc854191e0c267d      0t0  TCP 192.168.0.53:59182->3.211.184.30:443 (CLOSED)
+com.docke 32019 hyeonjikang   46u  IPv4 0xadc8541929bbf115      0t0  TCP 192.168.0.53:50123->34.203.150.133:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   47u  IPv4 0xadc854191c188645      0t0  TCP 172.16.65.114:65036->52.2.107.210:443 (CLOSED)
+com.docke 32019 hyeonjikang   48u  IPv4 0xadc854191c40c645      0t0  TCP 192.168.0.53:50139->35.222.202.121:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   49u  IPv4 0xadc854191c98667d      0t0  TCP 192.168.0.53:64931->54.147.25.99:443 (CLOSED)
+com.docke 32019 hyeonjikang   50u  IPv4 0xadc854191e0a667d      0t0  TCP 192.168.0.53:64260->34.192.102.130:443 (CLOSED)
+com.docke 32019 hyeonjikang   51u  IPv4 0xadc854191c9f5be5      0t0  TCP 192.168.0.53:49874->54.83.111.16:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   52u  IPv4 0xadc854191c988645      0t0  TCP 192.168.0.53:53183->52.3.31.98:443 (CLOSED)
+com.docke 32019 hyeonjikang   53u  IPv4 0xadc854191c145be5      0t0  TCP 192.168.0.53:64577->3.216.228.75:443 (CLOSED)
+com.docke 32019 hyeonjikang   54u  IPv4 0xadc854191c045be5      0t0  TCP 192.168.0.53:65507->52.45.161.52:443 (CLOSED)
+com.docke 32019 hyeonjikang   55u  IPv4 0xadc854191c7448bd      0t0  UDP *:60681
+com.docke 32019 hyeonjikang   56u  IPv4 0xadc854191c747fdd      0t0  UDP *:53420
+com.docke 32019 hyeonjikang   57u  IPv4 0xadc854191e0b8645      0t0  TCP 192.168.0.53:65139->34.192.102.130:443 (CLOSED)
+com.docke 32019 hyeonjikang   58u  IPv4 0xadc854191c74270d      0t0  UDP *:51894
+com.docke 32019 hyeonjikang   59u  IPv4 0xadc854191bde9be5      0t0  TCP 192.168.0.53:65216->34.224.14.209:443 (CLOSED)
+com.docke 32019 hyeonjikang   60u  IPv4 0xadc854191c3d7115      0t0  TCP 172.16.65.114:60566->54.152.228.8:443 (CLOSED)
+com.docke 32019 hyeonjikang   61u  IPv4 0xadc854191c744edd      0t0  UDP *:59409
+com.docke 32019 hyeonjikang   62u  IPv4 0xadc854191c9810dd      0t0  TCP 172.16.65.114:55954->52.3.31.98:443 (CLOSED)
+com.docke 32019 hyeonjikang   63u  IPv4 0xadc854191c74739d      0t0  UDP *:58887
+com.docke 32019 hyeonjikang   64u  IPv4 0xadc854191c943115      0t0  TCP 192.168.0.53:50896->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang   65u  IPv4 0xadc854191bdf9be5      0t0  TCP 192.168.0.53:50522->52.3.31.98:443 (CLOSED)
+com.docke 32019 hyeonjikang   66u  IPv4 0xadc8541929bad0dd      0t0  TCP 192.168.0.53:49749->18.215.115.187:443 (CLOSE_WAIT)
+com.docke 32019 hyeonjikang   68u  IPv4 0xadc854191c0a1be5      0t0  TCP 192.168.0.53:50134->107.21.50.195:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   69u  IPv4 0xadc854191c45bbad      0t0  TCP 192.168.0.53:65134->52.3.31.98:443 (CLOSED)
+com.docke 32019 hyeonjikang   70u  IPv4 0xadc854191c7454fd      0t0  UDP *:65451
+com.docke 32019 hyeonjikang   71u  IPv4 0xadc854191c9f90dd      0t0  TCP 192.168.0.53:50165->35.222.202.121:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   72u  IPv4 0xadc854191c9d5be5      0t0  TCP 192.168.0.53:50176->54.236.102.84:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   73u  IPv4 0xadc854191c45a67d      0t0  TCP 192.168.0.53:50159->54.236.102.84:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   75u  IPv4 0xadc8541929bd267d      0t0  TCP 192.168.0.53:49706->35.222.202.121:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   76u  IPv4 0xadc854191be0bbad      0t0  TCP 192.168.0.53:50698->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang   77u  IPv4 0xadc854191c45b115      0t0  TCP 192.168.0.53:50913->52.2.107.210:443 (CLOSED)
+com.docke 32019 hyeonjikang   78u  IPv4 0xadc854191c413bad      0t0  TCP 192.168.0.53:50177->54.210.150.62:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   79u  IPv4 0xadc854191c9d8645      0t0  TCP 192.168.0.53:49827->52.5.162.226:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   82u  IPv4 0xadc854191c077115      0t0  TCP 192.168.0.53:60608->35.71.161.2:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   84u  IPv4 0xadc854191c493bad      0t0  TCP 192.168.0.53:64069->23.22.34.247:443 (CLOSED)
+com.docke 32019 hyeonjikang   85u  IPv4 0xadc854191c191be5      0t0  TCP 192.168.0.53:64083->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang   86u  IPv4 0xadc854191c1650dd      0t0  TCP 192.168.0.53:51942->34.195.178.243:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   92u  IPv4 0xadc854191c3d5be5      0t0  TCP 192.168.0.53:51009->3.233.152.201:10516 (ESTABLISHED)
+com.docke 32019 hyeonjikang   93u  IPv4 0xadc854191e0a0645      0t0  TCP 192.168.0.53:50681->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang   97u  IPv4 0xadc854191c9e267d      0t0  TCP 192.168.0.53:51835->18.210.108.119:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang   98u  IPv4 0xadc854191e09d0dd      0t0  TCP 192.168.0.53:51025->3.233.152.47:10516 (ESTABLISHED)
+com.docke 32019 hyeonjikang   99u  IPv4 0xadc854191c14fbad      0t0  TCP 192.168.0.53:50967->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang  101u  IPv4 0xadc854191c047bad      0t0  TCP 192.168.0.53:51026->3.233.152.232:10516 (ESTABLISHED)
+com.docke 32019 hyeonjikang  102u  IPv4 0xadc854191c423115      0t0  TCP 192.168.0.53:51805->54.197.46.108:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  103u  IPv4 0xadc854191c419be5      0t0  TCP 192.168.0.53:51820->34.192.2.36:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  104u  IPv4 0xadc854191c3cf115      0t0  TCP 192.168.0.53:51027->3.225.64.3:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  112u  IPv4 0xadc854191c147bad      0t0  TCP 192.168.0.53:51849->34.195.178.243:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  113u  IPv4 0xadc854191c487115      0t0  TCP 192.168.0.53:51861->54.86.180.134:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  114u  IPv4 0xadc854191c09dbe5      0t0  TCP 192.168.0.53:51877->52.6.242.226:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  115u  IPv4 0xadc8541929bb7115      0t0  TCP 192.168.0.53:51878->52.71.97.4:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  116u  IPv4 0xadc854191c02267d      0t0  TCP 192.168.0.53:51879->54.209.192.81:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  117u  IPv4 0xadc8541929bb5be5      0t0  TCP 192.168.0.53:51880->54.86.14.199:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  246u  IPv4 0xadc8541929bb8645      0t0  TCP 192.168.0.53:50284->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang  249u  IPv4 0xadc854191c047115      0t0  TCP 192.168.0.53:50305->35.222.202.121:443 (CLOSED)
+com.docke 32019 hyeonjikang  280u  IPv4 0xadc854191c3b667d      0t0  TCP 192.168.0.53:51184->3.233.148.175:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  293u  IPv4 0xadc854191c495be5      0t0  TCP 192.168.0.53:51139->35.71.161.2:443 (ESTABLISHED)
+com.docke 32019 hyeonjikang  295u  IPv4 0xadc854191c0a0645      0t0  TCP 192.168.0.53:50926->54.152.228.8:443 (CLOSED)
+com.docke 32019 hyeonjikang  307u  IPv4 0xadc854191c424645      0t0  TCP 192.168.0.53:51131->3.233.147.246:443 (ESTABLISHED)
+vpnkit-br 32021 hyeonjikang    8u  IPv4 0xadc854191c07f115      0t0  TCP *:63295 (LISTEN)
+vpnkit-br 32021 hyeonjikang   14u  IPv4 0xadc854191e0a5be5      0t0  TCP 127.0.0.1:63295->127.0.0.1:63356 (ESTABLISHED)
+zoom.us   39011 hyeonjikang   17u  IPv4 0xadc854191e0cb115      0t0  TCP 192.168.0.53:64147->170.114.10.62:443 (CLOSE_WAIT)
+zoom.us   39011 hyeonjikang   70u  IPv4 0xadc854191c3d8645      0t0  TCP 192.168.0.53:50996->170.114.14.66:443 (ESTABLISHED)
+zoom.us   39011 hyeonjikang   73u  IPv4 0xadc8541929bc1be5      0t0  TCP 192.168.0.53:51306->170.114.0.18:443 (ESTABLISHED)
+idea      48366 hyeonjikang   11u  IPv6 0xadc8541929bebacd      0t0  TCP 127.0.0.1:6942 (LISTEN)
+idea      48366 hyeonjikang   24u  IPv6 0xadc8541929be97cd      0t0  TCP 127.0.0.1:63342 (LISTEN)
+idea      48366 hyeonjikang  214u  IPv6 0xadc854191db897cd      0t0  TCP 127.0.0.1:62993->127.0.0.1:60565 (ESTABLISHED)
+idea      48366 hyeonjikang  219u  IPv6 0xadc8541929bf0fcd      0t0  TCP 192.168.0.53:50148->192.168.0.53:64841 (SYN_SENT)
+idea      48366 hyeonjikang  221u  IPv6 0xadc8541929bedecd      0t0  TCP 127.0.0.1:49802->127.0.0.1:62992 (ESTABLISHED)
+idea      48366 hyeonjikang  325u  IPv6 0xadc854191db81ecd      0t0  TCP 192.168.0.53:50153->192.168.0.53:64703 (SYN_SENT)
+idea      48366 hyeonjikang  358u  IPv6 0xadc854191db84fcd      0t0  TCP 127.0.0.1:64685 (LISTEN)
+idea      48366 hyeonjikang  360u  IPv6 0xadc854191db841cd      0t0  TCP 127.0.0.1:49537->127.0.0.1:62992 (ESTABLISHED)
+idea      48366 hyeonjikang  363u  IPv6 0xadc854191db7decd      0t0  TCP 127.0.0.1:64685->127.0.0.1:49606 (ESTABLISHED)
+java      48426 hyeonjikang   63u  IPv6 0xadc854191db79ecd      0t0  TCP 127.0.0.1:60565 (LISTEN)
+java      48426 hyeonjikang   64u  IPv6 0xadc854191db8b3cd      0t0  TCP 127.0.0.1:62992 (LISTEN)
+java      48426 hyeonjikang   65u  IPv6 0xadc854191db8a5cd      0t0  TCP 127.0.0.1:60565->127.0.0.1:62993 (ESTABLISHED)
+java      48426 hyeonjikang   67u  IPv6 0xadc854191db7d7cd      0t0  TCP 127.0.0.1:62992->127.0.0.1:49802 (ESTABLISHED)
+java      48426 hyeonjikang   68u  IPv6 0xadc8541929be2ccd      0t0  TCP 127.0.0.1:62992->127.0.0.1:49537 (ESTABLISHED)
+java      49062 hyeonjikang   42u  IPv6 0xadc854191db808cd      0t0  TCP 127.0.0.1:49606->127.0.0.1:64685 (ESTABLISHED)
+Google    60533 hyeonjikang   20u  IPv4 0xadc854192aafc29d      0t0  UDP 192.168.0.53:55863->142.251.36.110:443
+Google    60533 hyeonjikang   21u  IPv4 0xadc854192aaf97bd      0t0  UDP 192.168.0.53:52494->142.251.36.110:443
+Google    60533 hyeonjikang   22u  IPv4 0xadc854191c44667d      0t0  TCP 192.168.0.53:59932->140.82.113.25:443 (ESTABLISHED)
+Google    60533 hyeonjikang   23u  IPv4 0xadc854191c3f267d      0t0  TCP 192.168.0.53:49969->40.101.55.162:443 (ESTABLISHED)
+Google    60533 hyeonjikang   24u  IPv4 0xadc854191c4be67d      0t0  TCP 192.168.0.53:49482->52.10.81.76:443 (ESTABLISHED)
+Google    60533 hyeonjikang   25u  IPv4 0xadc854192ab002ed      0t0  UDP 192.168.0.53:54010->142.251.36.110:443
+Google    60533 hyeonjikang   29u  IPv4 0xadc854191e0a10dd      0t0  TCP 192.168.0.53:51037->3.14.237.225:443 (ESTABLISHED)
+Google    60533 hyeonjikang   30u  IPv4 0xadc854191c07667d      0t0  TCP 192.168.0.53:58146->52.114.74.217:443 (ESTABLISHED)
+Google    60533 hyeonjikang   32u  IPv4 0xadc854191e0a7bad      0t0  TCP 192.168.0.53:50050->52.113.205.36:443 (ESTABLISHED)
+Google    60533 hyeonjikang   33u  IPv4 0xadc854191e0d5be5      0t0  TCP 127.0.0.1:51038->127.0.0.1:443 (ESTABLISHED)
+Google    60533 hyeonjikang   35u  IPv4 0xadc854191c969be5      0t0  TCP 192.168.0.53:60582->140.82.114.25:443 (ESTABLISHED)
+Google    60533 hyeonjikang   36u  IPv4 0xadc854191c74644d      0t0  UDP 192.168.0.53:60368->142.251.37.106:443
+Google    60533 hyeonjikang   37u  IPv4 0xadc854191c74334d      0t0  UDP 192.168.0.53:62125->142.251.36.81:443
+Google    60533 hyeonjikang   38u  IPv4 0xadc854191c4350dd      0t0  TCP 192.168.0.53:51040->3.138.74.165:443 (ESTABLISHED)
+Google    60533 hyeonjikang   40u  IPv6 0xadc8541929be4fcd      0t0  TCP [::1]:49158->[::1]:8080 (ESTABLISHED)
+Google    60533 hyeonjikang   41u  IPv4 0xadc854191c48b115      0t0  TCP 192.168.0.53:51046->3.138.74.165:443 (ESTABLISHED)
+Google    60533 hyeonjikang   42u  IPv6 0xadc8541929be17cd      0t0  TCP [::1]:49174->[::1]:8080 (ESTABLISHED)
+Google    60533 hyeonjikang   44u  IPv4 0xadc854191c431be5      0t0  TCP 192.168.0.53:51051->15.197.213.252:443 (ESTABLISHED)
+Google    60533 hyeonjikang   45u  IPv4 0xadc854191c40267d      0t0  TCP 192.168.0.53:51052->15.197.213.252:443 (ESTABLISHED)
+Google    60533 hyeonjikang   46u  IPv4 0xadc854191c74303d      0t0  UDP 192.168.0.53:57749->142.251.37.99:443
+Google    60533 hyeonjikang   47u  IPv4 0xadc854191bdd90dd      0t0  TCP 192.168.0.53:51048->40.101.78.114:443 (ESTABLISHED)
+Google    60533 hyeonjikang   48u  IPv4 0xadc854191c9de67d      0t0  TCP 192.168.0.53:51049->40.101.78.114:443 (ESTABLISHED)
+Google    60533 hyeonjikang   49u  IPv4 0xadc854191c9e50dd      0t0  TCP 192.168.0.53:50078->54.236.138.27:443 (ESTABLISHED)
+Google    60533 hyeonjikang   50u  IPv4 0xadc854191e0bf115      0t0  TCP 192.168.0.53:51843->52.113.199.41:443 (ESTABLISHED)
+Google    60533 hyeonjikang   52u  IPv4 0xadc854191c744bcd      0t0  UDP 192.168.0.53:61527
+Google    60533 hyeonjikang   53u  IPv4 0xadc854191c978645      0t0  TCP 127.0.0.1:49812->127.0.0.1:443 (ESTABLISHED)
+Google    60533 hyeonjikang   54u  IPv6 0xadc854191db833cd      0t0  TCP [::1]:49188->[::1]:8080 (ESTABLISHED)
+Google    60533 hyeonjikang   56u  IPv4 0xadc854191c403115      0t0  TCP 192.168.0.53:63360->52.114.104.13:443 (ESTABLISHED)
+Google    60533 hyeonjikang   57u  IPv4 0xadc854191c07dbe5      0t0  TCP 192.168.0.53:50076->54.236.138.27:443 (ESTABLISHED)
+Google    60533 hyeonjikang   58u  IPv4 0xadc854191c15667d      0t0  TCP 192.168.0.53:51211->142.250.27.188:5228 (ESTABLISHED)
+Google    60533 hyeonjikang   59u  IPv4 0xadc854191c94fbad      0t0  TCP 192.168.0.53:51223->142.250.27.188:5228 (ESTABLISHED)
+Google    60533 hyeonjikang   72u  IPv4 0xadc854191c4c7115      0t0  TCP 192.168.0.53:65147->104.18.23.52:443 (ESTABLISHED)
+Google    60533 hyeonjikang   77u  IPv4 0xadc854191c743c7d      0t0  UDP 192.168.0.53:62860->142.251.36.110:443
+Google    60533 hyeonjikang   81u  IPv4 0xadc854192aaf396d      0t0  UDP 192.168.0.53:51928->142.251.36.110:443
+Google    60533 hyeonjikang  117u  IPv6 0xadc854192aaf9acd      0t0  UDP *:5353
+Google    60533 hyeonjikang  118u  IPv6 0xadc854192aafa3fd      0t0  UDP *:5353
+Google    60533 hyeonjikang  119u  IPv6 0xadc854192aafa70d      0t0  UDP *:5353
+Google    60533 hyeonjikang  121u  IPv4 0xadc854192aafaa1d      0t0  UDP *:5353
+Google    60533 hyeonjikang  122u  IPv6 0xadc854192aafad2d      0t0  UDP *:5353
+Google    60533 hyeonjikang  123u  IPv6 0xadc854192aafb65d      0t0  UDP *:5353
+Google    60533 hyeonjikang  124u  IPv6 0xadc854192aafcbcd      0t0  UDP *:5353
+Google    60533 hyeonjikang  125u  IPv6 0xadc854192aafe13d      0t0  UDP *:5353
+Google    60533 hyeonjikang  126u  IPv6 0xadc854192aaff9bd      0t0  UDP *:5353
+Google    60533 hyeonjikang  127u  IPv6 0xadc854192ab082ed      0t0  UDP *:5353
+ControlCe 79348 hyeonjikang    3u  IPv4 0xadc854191c74396d      0t0  UDP *:*
+Slack\x20 91185 hyeonjikang   15u  IPv4 0xadc854191c19267d      0t0  TCP 192.168.0.53:51054->3.68.63.139:443 (ESTABLISHED)
+Slack\x20 91185 hyeonjikang   18u  IPv4 0xadc854191bdebbad      0t0  TCP 192.168.0.53:51206->52.204.91.203:443 (ESTABLISHED)
+Slack\x20 91185 hyeonjikang   21u  IPv4 0xadc8541929bc5be5      0t0  TCP 192.168.0.53:51421->35.174.225.168:443 (ESTABLISHED)
+WeatherWi 97434 hyeonjikang   10u  IPv4 0xadc854191c9890dd      0t0  TCP 192.168.0.53:49564->23.73.141.192:443 (CLOSED)
+WeatherWi 97434 hyeonjikang   11u  IPv4 0xadc854191c3ffbad      0t0  TCP 192.168.0.53:49565->95.100.146.66:443 (CLOSED)
+StocksWid 97436 hyeonjikang   20u  IPv4 0xadc854191c4ba67d      0t0  TCP 192.168.0.53:49566->95.100.146.43:443 (CLOSED)
+StocksWid 97436 hyeonjikang   21u  IPv4 0xadc854191c9cd0dd      0t0  TCP 192.168.0.53:49567->104.64.163.154:443 (CLOSED)
